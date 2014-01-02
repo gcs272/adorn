@@ -1,0 +1,8 @@
+{
+    "quotmark": "single",
+    "trailing": true,
+    "-W030": true,
+    "strict": true,
+    "node": true,
+    "predef": ["describe", "it", "beforeEach", "afterEach"]
+}

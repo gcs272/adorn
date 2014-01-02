@@ -1,0 +1,25 @@
+{
+  "name": "adorn",
+  "description": "Backbone.Model formatting extension",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gcs272/adorn"
+  },
+  "dependencies": {
+    "backbone": "1.1.0",
+    "moment": "~2.5.0",
+    "underscore": "1.5.2"
+  },
+  "devDependencies": {
+    "mocha": "1.15.1",
+    "chai": "1.8.1",
+    "grunt": "~0.4.2",
+    "grunt-cli": "0.1.11",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-jshint2": "~2.4.0"
+  },
+  "scripts": {
+    "test": "NODE_PATH=lib grunt test"
+  }
+}
