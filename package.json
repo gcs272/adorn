@@ -2,6 +2,7 @@
   "name": "adorn",
   "description": "Backbone.Model formatting extension",
   "version": "0.0.1",
+  "keywords": ["backbone", "model", "formatting"],
   "repository": {
     "type": "git",
     "url": "https://github.com/gcs272/adorn"
