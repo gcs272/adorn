@@ -1,7 +1,7 @@
 {
   "name": "adorn",
   "description": "Backbone.Model formatting extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["backbone", "model", "formatting"],
   "repository": {
     "type": "git",
