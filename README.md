@@ -1,6 +1,8 @@
 # Adorn
 ### a Backbone.Model formatting extension
 
+[![Build Status](https://travis-ci.org/gcs272/adorn.png?branch=master)](https://travis-ci.org/gcs272/adorn)
+
 Adorn is a simple Backbone.Model extension that allows a schema to be defined on a model.
 That model then has a .formatted() method that will return formatted strings.  The model
 also has a .parseForm(el) method which, given a jquery style dom selector to the containing
