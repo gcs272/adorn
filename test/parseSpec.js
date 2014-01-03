@@ -3,8 +3,8 @@
 var expect = require('chai').expect,
     jsdom = require('jsdom'),
     _ = require('underscore'),
-    Model = require('Model'),
-    Formatters = require('Formatters');
+    Model = require('model'),
+    Formatters = require('formatters');
 
 global.document = global.document || jsdom.jsdom();
 global.window = global.window || global.document.createWindow();
