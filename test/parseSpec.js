@@ -58,4 +58,13 @@ describe('Parsing a rendered model', function() {
         expect(update.date).to.equal('2014-06-01');
         expect(update.a_hidden_attr).to.equal('definitely-not-fnord');
     });
+
+    it('Shouldnt stomp values not in the dom', function() {
+        var model = new this.AdornModel({
+            'id': 'some-id'
+        });
+
+        model.set(model.parseForm(this.el));
+        expect(model.id).to.equal('some-id');
+    });
 });
