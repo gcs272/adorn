@@ -14,8 +14,8 @@ describe('Formatters', function() {
         });
 
         it('Should format dates', function() {
-            expect(formatters.date.format('2014-06-01')).to.equal('6/1/2014');
-            expect(formatters.date.format('2014-06-01T00:00:00')).to.equal('6/1/2014');
+            expect(formatters.date.format('2014-06-01')).to.equal('2014-06-01');
+            expect(formatters.date.format('2014-06-01T00:00:00')).to.equal('2014-06-01');
         });
 
         it('Should format percentages', function() {

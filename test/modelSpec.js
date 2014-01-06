@@ -32,6 +32,23 @@ describe('An extended model', function() {
             expect(_.keys(values)).to.have.length(4);
         });
 
+        it('Should avoid needing null entries in the schema', function() {
+            this.model = new this.AdornModel({
+                id: 'c2b97bde-b3cf-4354-aea5-de899e4c3d2d',
+                name: 'A Test Model',
+                price: 5.1,
+                percent: 0.31516,
+                date: '2016-01-01'
+            });
+
+            var values = this.model.formatted();
+            expect(values.id).to.equal(this.model.get('id'));
+            expect(values.name).to.equal('A Test Model');
+            expect(values.price).to.equal('5.10');
+            expect(values.percent).to.equal('32');
+            expect(values.date).to.equal('2016-01-01');
+        });
+
         it('Should correctly apply formatting', function() {
             this.model = new this.AdornModel({
                 name: 'A Test Model',
@@ -44,7 +61,7 @@ describe('An extended model', function() {
             expect(values.name).to.equal('A Test Model');
             expect(values.price).to.equal('5.10');
             expect(values.percent).to.equal('32');
-            expect(values.date).to.equal('6/1/2014');
+            expect(values.date).to.equal('2014-06-01');
         });
     });
 
