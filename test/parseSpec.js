@@ -46,7 +46,8 @@ describe('Parsing a rendered model', function() {
 
     it('Should parse items in attribs, but not in the schema', function() {
         var model = new this.AdornModel({
-            'a_hidden_attr': 'fnord!'
+            'a_hidden_attr': 'fnord!',
+            'price': 100
         });
 
         var update = model.parseForm(this.el);
