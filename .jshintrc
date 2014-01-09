@@ -4,5 +4,6 @@
     "-W030": true,
     "strict": true,
     "node": true,
+    "eqnull": true,
     "predef": ["describe", "it", "beforeEach", "afterEach"]
 }
