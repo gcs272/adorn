@@ -13,7 +13,8 @@ describe('An extended model', function() {
                     'name': null,
                     'price': Formatters.cost,
                     'percent': Formatters.percent,
-                    'date': Formatters.date
+                    'date': Formatters.date,
+                    'emptyDate': Formatters.date
                 }
             });
             var model = this.model = new AdornModel();
@@ -25,11 +26,12 @@ describe('An extended model', function() {
 
         it('Should provide all entries in the schema', function() {
             var values = this.model.formatted();
-            expect(values.name).to.equal(null);
-            expect(values.price).to.equal(null);
-            expect(values.percent).to.equal(null);
-            expect(values.date).to.equal(null);
-            expect(_.keys(values)).to.have.length(4);
+            expect(values.name).to.have.length(0);
+            expect(values.price).to.have.length(0);
+            expect(values.percent).to.have.length(0);
+            expect(values.date).to.have.length(0);
+            expect(values.emptyDate).to.have.length(0);
+            expect(_.keys(values)).to.have.length(5);
         });
 
         it('Should avoid needing null entries in the schema', function() {
@@ -54,7 +56,8 @@ describe('An extended model', function() {
                 name: 'A Test Model',
                 price: 5.1,
                 percent: 0.31516,
-                date: '2014-06-01'
+                date: '2014-06-01',
+                emptyDate: null
             });
 
             var values = this.model.formatted();
@@ -62,6 +65,13 @@ describe('An extended model', function() {
             expect(values.price).to.equal('5.10');
             expect(values.percent).to.equal('32');
             expect(values.date).to.equal('2014-06-01');
+            expect(values.emptyDate).to.equal('');
+
+            this.model = new this.AdornModel({
+                emptyDate: ''
+            });
+            values = this.model.formatted();
+            expect(values.emptyDate).to.equal('');
         });
     });
 
@@ -79,3 +89,4 @@ describe('An extended model', function() {
         });
     });
 });
+
