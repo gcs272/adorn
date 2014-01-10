@@ -67,4 +67,16 @@ describe('Parsing a rendered model', function() {
         model.set(model.parseForm(this.el));
         expect(model.id).to.equal('some-id');
     });
+
+    it('Should parse empty strings as null', function() {
+        var model = new this.AdornModel({
+            'id': 'some-id',
+            'name': 'clear me!'
+        });
+
+        this.el.find('[name=name]').val('');
+        model.set(model.parseForm(this.el));
+
+        expect(model.get('name')).to.equal(null);
+    });
 });
