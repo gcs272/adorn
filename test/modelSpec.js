@@ -25,10 +25,10 @@ describe('An extended model', function() {
 
         it('Should provide all entries in the schema', function() {
             var values = this.model.formatted();
-            expect(values.name).to.equal(null);
-            expect(values.price).to.equal(null);
-            expect(values.percent).to.equal(null);
-            expect(values.date).to.equal(null);
+            expect(values.name).to.equal('');
+            expect(values.price).to.equal('');
+            expect(values.percent).to.equal('');
+            expect(values.date).to.equal('');
             expect(_.keys(values)).to.have.length(4);
         });
 
@@ -62,6 +62,23 @@ describe('An extended model', function() {
             expect(values.price).to.equal('5.10');
             expect(values.percent).to.equal('32');
             expect(values.date).to.equal('2014-06-01');
+        });
+
+        it('Should change nulls to null string', function() {
+            this.model = new this.AdornModel({
+                name: 'A Test Model',
+                price: null,
+                percent: null,
+                date: null,
+                other: null
+            });
+
+            var values = this.model.formatted();
+            expect(values.name).to.equal('A Test Model');
+            expect(values.price).to.equal('');
+            expect(values.percent).to.equal('');
+            expect(values.date).to.equal('');
+            expect(values.other).to.equal('');
         });
     });
 
