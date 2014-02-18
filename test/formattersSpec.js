@@ -23,6 +23,12 @@ describe('Formatters', function() {
             expect(formatters.percent.format(0.333)).to.equal('33');
             expect(formatters.percent.format(0.335)).to.equal('34');
         });
+
+        it('Should stringify strings', function() {
+            expect(formatters.string.format('hello')).to.equal('hello');
+            expect(formatters.string.format(null)).to.equal('');
+            expect(formatters.string.format(12)).to.equal('12');
+        });
     });
 
     describe('Parsing', function() {
@@ -42,6 +48,12 @@ describe('Formatters', function() {
             expect(formatters.percent.parse('30')).to.equal(0.3);
             expect(formatters.percent.parse('33')).to.equal(0.33);
             expect(formatters.percent.parse('33.3')).to.equal(0.333);
+        });
+
+        it('Should parse strings', function() {
+            expect(formatters.string.parse('hello')).to.equal('hello');
+            expect(formatters.string.parse('')).to.equal(null);
+            expect(formatters.string.parse('12')).to.equal('12');
         });
     });
 });
