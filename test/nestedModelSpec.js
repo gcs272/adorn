@@ -42,3 +42,29 @@ describe('A nested model', function() {
         expect(res.loan.funding.amount).to.equal('1.10');
     });
 });
+
+describe('Another nested model with nulls', function() {
+    beforeEach(function() {
+        var AdornModel = Model.extend({
+            schema: {
+                name: null,
+                address: {
+                    address_1: null
+                }
+            }
+        });
+
+        var model = this.model = new AdornModel({
+            name: 'a-name',
+            address: {
+                address_1: 'an-address'
+            }
+        });
+    });
+
+    it('Should format nested values without formatters', function() {
+        var res = this.model.formatted();
+        expect(res.name).to.equal('a-name');
+        expect(res.address.address_1).to.equal('an-address');
+    });
+});
